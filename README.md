@@ -1,6 +1,6 @@
 # Plagiarism Detection
 
-### A command-line program that performs plagiarism detection using a N-tuple comparison algorithm allowing for synonyms in the text.**
+### A command-line program that performs plagiarism detection using a N-tuple comparison algorithm allowing for synonyms in the text.
 
 ### Input arguments:
 **Mandatory:**
