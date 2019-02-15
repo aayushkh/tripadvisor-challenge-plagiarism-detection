@@ -80,3 +80,7 @@ Matching Tuples: 1/2 = 50%
   Since file1 produces 2 tuples and file2 produces 3 tuples.
   Therefore, Plagiarism percent = matches/maximum tuple size of both files = (2 /3)*100 = 66.67%
   ```
+
+### Error Handling :
+1. **N out of bounds**: if N > minimum number of words in both the files
+2. **N cannot be negative**: if N < 0.
