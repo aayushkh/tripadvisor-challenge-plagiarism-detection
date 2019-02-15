@@ -4,6 +4,9 @@ class TupleOperations:
 
     @staticmethod
     def get_match_count(tuple_set, tuple_list):
+        """
+        returns the total n-tuple matches by checking if each element in the tuple_list is present in the tuple_set.
+        """
         matches = 0
         for elem in tuple_list:
             if elem in tuple_set:
@@ -11,8 +14,14 @@ class TupleOperations:
                 print (elem)
         return matches
 
+
     @staticmethod
     def create_tuple_list(filepath, n, syn_dic):
+        """
+        creates the tuples list.
+        takes filepath, tuple size and synonym dictionary as input paramenters.
+        words are striped leading and trailing spaces and converted to lowercase.
+        """
         tuple_list = []
         with open(filepath) as contents:
             for line in contents:
@@ -25,8 +34,13 @@ class TupleOperations:
                     tuple_list.append(segment)
         return tuple_list
 
+
     @staticmethod
     def create_synonym_map(filepath):
+        """
+        creates a synonym dictionary where every word is mapped to the first word synonym in the line.
+        words are striped leading and trailing spaces, converted to lowercase and sentence punctuations are removed before mapping.
+        """
         synonym_map ={}
         with open(filepath) as contents:
             for line in contents:

@@ -71,13 +71,44 @@ Matching Tuples: 1/2 = 50%
 
 ---
 
-### Assumptions :
+### Summary:
+1. Parses the command line arguments using ```argparse```. Check Usage examples on how to run the program.
+2. Creates the synonym dictionary mapping each word to the first word synonym in the line.
+3. Creates a tuple lists for words in file1 and file2.
+4. Convert tuple list for file2 to a set for constant lookup.
+5. Checks matches in tuple list for file 1 in the set created for file2.
+
+#### Time Complexity:
+```
+step 1. O(1)
+step 2. O(number of words in syns.txt), say O(syn)
+step 3. O(2 * number of words in file1.txt + O(2 * number of words in file2.txt), say O(f1) + O(f2)
+step 4. O(number of tuples in tuples_list2), ~ O(f2)
+step 5. O(number of tuples in tuples_list1), ~ O(f1)
+
+Therefore the time complexity is 
+O(syn) + O(f1) + O(f2) + O(f1) + O(f2),
+which reduces to O(syn + f1 + f2)
+```
+
+---
+
+### Assumptions:
 1. Number of occurences of a tuple is not tracked, ie every time a tuple from one file is present in the other file, it counts as plagiarism.
-2. The plagiarism percent is based off the file with most number of tuples. 
-For example, say if 
+2. The plagiarism percent is based off the file with most number of tuples.
+#### For example
 ```
 N = 3
 file1 = 'go for a run'and file2 = 'go for a jog when'
 since files1 produces 2 tuples and file2 produces 3 tuples.
 Therefore, Plagiarism percent = matches/maxaximum tuple size of both files = (2 /3)*100 = 66.67%
 ```
+3. Numbers can be considered as words and will be added to the tuples set created for file2.
+#### For example
+```
+N = 3
+files1 = 'I had 3 desserts' and file2 = 'I had 3 sweets'
+This produces Tuple Lists as ['I had 3','had 3 sushis'] and ['I had 3','had 3 sweets'] with a 50% plagiarism.
+```
+4. Sentence punctuations are removed from the start and end of words. So, 'j-og' and 'jog' are two different words, but ',jog', 'jog.' and 'jog' are the same word.
+
