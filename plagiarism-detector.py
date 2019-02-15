@@ -13,28 +13,25 @@ def main():
 
     if args.n < 0:
         print ("Error: N cannot be negative.")
-        return -1
+        return
 
     synonym_dic = TupleOperations.create_synonym_map(args.syns_file.name)
     tuple_list1 = TupleOperations.create_tuple_list(args.file1.name, args.n, synonym_dic)
     tuple_list2 = TupleOperations.create_tuple_list(args.file2.name, args.n, synonym_dic)
-    
-    l1 = len(tuple_list1)
-    l2 = len(tuple_list2)
+
+    l1, l2 = len(tuple_list1), len(tuple_list2)
 
     if not l1 or not l2:
         print ("Error: One or both of the files generated no tuples.")
-        return -1
-
-    print (l1 + args.n - 1, l2 + args.n - 1)
+        return
 
     if (args.n > l1 + args.n - 1) or (args.n > l2  + args.n - 1):
         print ("Error: N out of bounds.")
-        return -1
+        return
     else:
         matches = TupleOperations.get_match_count(set(tuple_list2), tuple_list1)
         match_percent = (matches/l1) * 100 if l1 else 0.0
-        print ("Output : ", match_percent, "%")
+        print ("Plagiarism : ", match_percent, "%")
 
 # To prevent this file to be used as a module, and to be able to execute this on the command line.
 if __name__ == '__main__':

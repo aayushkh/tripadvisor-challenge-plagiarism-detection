@@ -1,1 +1,3 @@
 run sprint jog
+bath shower
+cook grill bake
