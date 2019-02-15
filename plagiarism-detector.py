@@ -23,7 +23,7 @@ def main():
     l2 = len(tuple_list2)
 
     if not l1 or not l2:
-        print ("Error: One of the files generated no tuples.")
+        print ("Error: One or both of the files generated no tuples.")
         return -1
 
     print (l1 + args.n - 1, l2 + args.n - 1)

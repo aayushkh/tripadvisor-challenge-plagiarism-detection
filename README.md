@@ -112,6 +112,10 @@ This produces Tuple Lists as ['I had 3','had 3 sushis'] and ['I had 3','had 3 sw
 ```
 4. Sentence punctuations are removed from the start and end of words. So, 'j-og' and 'jog' are two different words, but ',jog', 'jog.' and 'jog' are the same word.
 
+---
+
 ### Error Handling :
-1. **N out of bounds**: if N > minimum number of words in both the files
-2. **N cannot be negative**: if N < 0.
+1. **N out of bounds**: N hould be greater than the minimum number of words in both the files.
+2. **N cannot be negative**: N should be less than 0.
+3. **If either file is empty**: both files should generate valid tuples.
+4. **Incorrect arguments**: handled by argparse.
